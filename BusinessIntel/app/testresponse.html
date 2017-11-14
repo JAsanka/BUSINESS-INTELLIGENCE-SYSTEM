@@ -1,0 +1,23 @@
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+
+<script>
+
+var endpoint='api/chart/data'
+$.ajax({
+    method:"GET",
+    url : endpoint,
+    success:function(data){
+        console.log(data)
+    },
+    error:function(error_data){
+        console.error("error")
+        console.log(error_data)
+    }
+
+
+})
+
+</script>
