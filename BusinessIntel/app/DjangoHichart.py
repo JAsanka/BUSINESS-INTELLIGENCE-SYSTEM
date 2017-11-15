@@ -26,15 +26,17 @@ def hichartGenerate(request, format=None):
 
     dataset.rename(columns={'product_id': 'product'}, inplace=True)
 
-    dataset=dataset.join(products_df['product_name'],on='product',rsuffix='_id').set_index('product')
+    dataset=dataset.join(products_df['product_name'],on='product',rsuffix='_id')
+    dataset=dataset.reset_index(drop=True)
 
+    cc=dataset.to_json()
     chart = serialize(
             df=dataset,
             render_to='Leak Values',
            
-            chart_type="stock", title="What type of products customer purchase most often?",
+           
             use_index=False,
             output_type='json')
 
-    return render(request, "app/DjangoHichartTest.html", context={"chart": chart})
+    return render(request, "app/DjangoHichartTest.html", context={"chart":cc})
 
