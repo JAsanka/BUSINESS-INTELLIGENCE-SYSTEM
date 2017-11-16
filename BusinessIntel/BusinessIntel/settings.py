@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainApp',
+    
     'app',
     'rest_framework',
 ]
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'BusinessIntel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'BusinessIntel',
+        'NAME': 'mysamplesite',
         'USER': 'root',
         'PASSWORD': '123',
         'HOST': 'localhost',
@@ -126,3 +126,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/home'
