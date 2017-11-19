@@ -2,11 +2,21 @@ from django.conf.urls import url
 from app import views
 from .DjangoHichart import hichartGenerate
 from .DjangoRestApi import ChartData
+from .Charts.items_sold import itemsSoldData
+from .Charts.sales_of_year import SalesOfYearData
+from .Charts.monthly_sales import SalesOfMonthData
+from .Charts.year_total_Profits_income import SalesProfitOfYearData
+from .Charts.frequent_customers import FrequentCustomers
+from .Charts.most_profitable_Products import most_profitable_Products
+from .Charts.User_logins import loginDeviceData
+from .Charts.indexData import indexloadData
+
 from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    url(r'^.*\.html', views.gentella_html, name='gentella'),
+    url(r'^.*\.html', views.allHtml, name='All htmls'),
+
 
     # The home page
     url(r'^home$', views.index, name='index'),
@@ -19,8 +29,22 @@ urlpatterns = [
     
 
     #charts
+    url(r'^Analytics$',views.charts, name='charts'),
+    url(r'^predictions$',views.predictions, name='predictions'),
+    
     url(r'^highChart$', hichartGenerate, name='highchart'),
     
     url(r'^api/chart/data$', ChartData.as_view()),
-    
+    url(r'^api/items_sold/data$', itemsSoldData.as_view()),
+    url(r'^api/sales_of_year/data$', SalesOfYearData.as_view()),
+    url(r'^api/SalesOfMonth/data$', SalesOfMonthData.as_view()),
+    url(r'^api/totalSalesProfit/data$', SalesProfitOfYearData.as_view()),
+    url(r'^api/FrequentCustomers/data$', FrequentCustomers.as_view()),
+    url(r'^api/most_profitable_Products/data$', most_profitable_Products.as_view()),
+    url(r'^api/loginDeviceData/data$', loginDeviceData.as_view()), 
+    url(r'^api/indexloadData/data$', indexloadData.as_view()),  
+
     ]
+
+
+    

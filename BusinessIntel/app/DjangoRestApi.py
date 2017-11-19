@@ -47,15 +47,3 @@ class ChartData(APIView):
             }
 
         return Response(data)
-'''
-    cc=dataset.to_json()
-    chart = serialize(
-            df=dataset,
-            render_to='Leak Values',
-           
-           
-            use_index=False,
-            output_type='json')
-
-    return render(request, "app/DjangoHichartTest.html", context={"chart":cc})
-'''

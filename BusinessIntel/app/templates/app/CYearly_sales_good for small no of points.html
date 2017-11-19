@@ -1,0 +1,112 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+
+<script>
+        
+        var labledata=[];
+        var labledata2=[];
+        var featuresdata=[];
+        
+        
+        var endpoint='api/sales_of_year/data'
+        $.ajax({
+            method:"GET",
+            url : endpoint,
+            success:function(data){
+                console.log(data)
+        
+                 featuresdata=data.sales;
+                 labledata=data.date;
+                // labledata2=data.sales;
+                  console.log("label data"+labledata);
+                  console.log("featuredata" +   featuresdata);
+    
+    
+
+$('#container').highcharts({
+            title: {
+                text: '',
+                x: 0
+            },
+            subtitle: {
+                text: '',
+                x: 0
+            },
+            navigation: {
+                buttonOptions: {
+                    enabled: false
+                }
+            },
+            xAxis: {
+                categories: labledata
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                borderColor: '#FFDD90',
+                borderRadius: '3',
+                borderWidth: '1',
+                backgroundColor: '#FFFAD3',
+                formatter: function() {
+                    return '<strong>' + this.y + '</strong>';
+                }
+            },
+            legend: {
+            	enabled: false
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                area: {
+                    fillColor: '#9FDBF7',
+                    lineWidth: 3,
+                    marker: {
+                        enabled: true,
+                        fillColor: '#FFF',
+                        lineColor: '#4ABDF1',
+                        lineWidth: 2
+                    },
+                    shadow: false,
+                    states: {
+                        hover: {
+                            lineWidth: 3
+                        }
+                    },
+                    threshold: null
+                }
+            },
+            series: [{
+                name: '',
+                type: 'area',
+                color: '#4ABDF1',
+                data: featuresdata
+            }]
+        });
+      
+    
+        
+                      
+            },
+            error:function(error_data){
+                console.error("error")
+                console.log(error_data)
+            }
+        })
+     
+        </script>
+
+
+
+

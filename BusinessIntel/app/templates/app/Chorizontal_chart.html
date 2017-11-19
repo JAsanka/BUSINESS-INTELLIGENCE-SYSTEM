@@ -1,0 +1,114 @@
+
+<html>
+	<head>
+    	<!-- For Joomla: remove <html><head> and <body> tags, jquery script reference.--> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+
+        <script src="/static/vendors/jquery/dist/jquery.js"></script>
+        <style type="text/css">
+
+            /* Keep the smaller device widths from breaking long 'categories' names by giving the chart more height at small widths */
+            @media (max-width: 441px) {
+                    #highchart_container {height: 900px;}
+            }
+            @media (min-width: 440px) {
+                #highchart_container {height: 600px;}
+            }
+
+		</style>
+    	</head>
+	<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+<div id="highchart_container" style="width: 100%; max-width: 800px; margin: 0 auto"></div>
+
+	</body>
+</html>
+<script>
+    
+    var labledata=[];
+    var labledata2=[];
+    var featuresdata=[];
+    
+    
+    var endpoint='api/items_sold/data'
+    $.ajax({
+        method:"GET",
+        url : endpoint,
+        success:function(data){
+            console.log(data)
+    
+             featuresdata=data.no_of_orders;
+             labledata=data.productNames;
+            // labledata2=data.sales;
+              console.log("label data"+labledata);
+              console.log("featuredata" +   featuresdata);
+
+
+    $(function () {
+        $('#highchart_container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Most sold item from 2010-2011'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: labledata,
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Product',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+           
+            credits: {
+                enabled: false
+            },
+            series: [{
+                    data: featuresdata,
+    name: 'no of Orders'
+            }]
+            
+        });
+    });	
+
+
+    
+                  
+        },
+        error:function(error_data){
+            console.error("error")
+            console.log(error_data)
+        }
+    })
+    
+    
+    
+    </script>
+
+<script type="text/javascript">
+    	</script>

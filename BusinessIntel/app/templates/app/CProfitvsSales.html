@@ -1,0 +1,67 @@
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
+<canvas id="bar-chart-grouped" width="200" height="200"></canvas>
+
+
+
+
+   <script>
+
+
+        var totalSales=[];
+        var months=[];
+        var totalProfit=[];
+        
+        
+        var endpoint="api/totalSalesProfit/data"
+        $.ajax({
+            method:"GET",
+            url : endpoint,
+            success:function(data){
+                //  console.log("Working")
+				 totalProfit=data.totalProfit
+				 months=data.months
+				 totalSales=data.totalSales
+					console.log(totalProfit)
+                    console.log(totalSales)
+
+                new Chart(document.getElementById("bar-chart-grouped"), {
+                    type: 'bar',
+                    data: {
+                    labels:  ['Jan','Feb','March','April','May','June','July','Aug','Sept','Oct','Nov','Dec'],
+                    datasets: [
+                        {
+                        label: "Profit",
+                        backgroundColor: "#3e95cd",
+                        data:totalProfit,
+                        }, {
+                        label: "Sales",
+                        backgroundColor: "#8e5ea2",
+                        data:totalSales,
+                        }
+                    ]
+                    },
+                    options: {
+                    title: {
+                        display: true,
+                        text: 'Sales details for the year'
+                    }
+                    }
+                });
+
+            
+            },
+            error:function(error_data){
+                console.error("error")
+                console.log(error_data)
+            }
+        })
+
+
+
+
+	
+
+ </script>
