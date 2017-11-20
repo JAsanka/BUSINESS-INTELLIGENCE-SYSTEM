@@ -8,6 +8,8 @@ import pandas_highcharts
 import pandas as pd
 import numpy as np
 
+from .Common import CommonData as Dataset
+
 
 
 class SalesOfYearData(APIView):
@@ -19,7 +21,7 @@ class SalesOfYearData(APIView):
     def get(self, request, format=None):
         
         file = "app/Charts/new_sets.csv"
-        df = pd.read_csv(file, index_col=0)
+        df = Dataset.df
 
         inv_data=df.set_index("InvoiceDate")
         inv_data.index = inv_data.index.to_datetime()

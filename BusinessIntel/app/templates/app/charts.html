@@ -53,7 +53,10 @@
             </div>
             <div class="x_content">
 
-              <div id="mainb" style="height:350px;"></div>
+              <div style="height:350px;">
+                  {% include "app/charts/predcition1_chart.html" %}
+              </div>
+               
 
             </div>
           </div>
@@ -82,7 +85,9 @@
             </div>
             <div class="x_content">
 
-              <div id="echart_mini_pie" style="height:350px;"></div>
+              <div  style="height:100%; width="75%">
+                  {% include "app/charts/Cprofit_of_the_year.html" %}
+              </div>
 
             </div>
           </div>
@@ -385,7 +390,8 @@
 {% endblock content %}
 
 {% block javascripts %}
-  {{ block.super }}
+  
+  
   <!-- ECharts -->
   <script src="/static/vendors/echarts/dist/echarts.min.js"></script>
   <script src="/static/vendors/echarts/map/js/world.js"></script>

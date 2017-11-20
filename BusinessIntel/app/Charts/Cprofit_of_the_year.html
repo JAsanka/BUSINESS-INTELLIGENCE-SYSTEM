@@ -1,0 +1,56 @@
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
+<div id="doughnut-chart1" width="400" height="450"></div>
+
+
+   <script>
+
+		var totalSalese=[];
+        var months=[];
+        var totalProfit=[];
+        
+        
+        var endpoint="api/totalSalesProfit/data"
+        $.ajax({
+            method:"GET",
+            url : endpoint,
+            success:function(data){
+                //  console.log("Working")
+				 totalProfit=data.totalProfit
+				 months=data.months
+				 totalSalese=data.totalSalese
+					
+				 
+					new Chart(document.getElementById("doughnut-chart1"), {
+					type: 'doughnut',
+					data: {
+					labels:  ['Jan','Feb','March','April','May','June','July','Aug','Sept','Oct','Nov','Dec'],
+					datasets: [
+						{
+						label: "Profit amount",
+						backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cr", "#8e5eb2","#3c6a9f","#e8c3a9","#c49850","#8e7eb2","#3d6a9f",],
+						data: totalProfit
+						}
+					]
+					},
+					options: {
+					title: {
+						display: true,
+						text: 'Profit for the year'
+					}
+					}
+				});
+
+
+
+            },
+            error:function(error_data){
+                console.error("error")
+                console.log(error_data)
+            }
+        })
+	
+
+ </script>

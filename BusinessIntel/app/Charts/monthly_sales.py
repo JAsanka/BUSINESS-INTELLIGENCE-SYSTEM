@@ -8,6 +8,9 @@ import pandas_highcharts
 import pandas as pd
 import numpy as np
 
+from .Common import CommonData as Dataset
+
+
 
 
 class SalesOfMonthData(APIView):
@@ -19,19 +22,29 @@ class SalesOfMonthData(APIView):
     def get(self, request, format=None):
         
         file = "app/Charts/new_sets.csv"
-        df = pd.read_csv(file, index_col=0)
+        df = Dataset.df
 
-        prod_prof = df
-        prod_prof["TotalAmount"] = prod_prof["Quantity"]*prod_prof["UnitPrice"]
-        prod_prof.head()
-        prod_prof["TotalAmount"].sum() # Anually Sale
-        total_amount = prod_prof.groupby("InvoiceDate")["TotalAmount","Quantity","UnitPrice"].agg({"TotalAmount":["sum","count"],
-                                                                        "Quantity":["sum","count"],
-                                                                        "UnitPrice":["sum","count"]})
-        
+#         prod_prof = df
+#         prod_prof["TotalAmount"] = prod_prof["Quantity"]*prod_prof["UnitPrice"]
+#         prod_prof.head()
+#         prod_prof["TotalAmount"].sum() # Anually Sale
+#         total_amount = prod_prof.groupby("InvoiceDate")["TotalAmount","Quantity","UnitPrice"].agg({"TotalAmount":["sum","count"],
+#                                                                         "Quantity":["sum","count"],
+# "UnitPrice":["sum","count"]})
+
+
+
+
+        inv_data=df.set_index("InvoiceDate")
+        inv_data.index = inv_data.index.to_datetime()
+        inv_data=inv_data["Quantity"]
+        inv_data=inv_data.groupby(inv_data.index.month).agg('sum')
+
+        label=inv_data.index
+        features=inv_data.values
 
        
-        tA = total_amount["TotalAmount"]["sum"]
+      
 # plt.figure(figsize=(12,8))        
 # tA.plot()
 # plt.xticks(rotation="vertical")
@@ -42,7 +55,7 @@ class SalesOfMonthData(APIView):
 
 
         data={
-                "date":tA.index,"sales":tA.values,
+                "date":label,"sales":features,
             }
 
         return Response(data)

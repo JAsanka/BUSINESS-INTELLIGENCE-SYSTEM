@@ -8,6 +8,8 @@ import pandas_highcharts
 import pandas as pd
 import numpy as np
 
+from .Common import CommonData as Dataset
+
 
 
 # for PieChart
@@ -21,7 +23,7 @@ class most_profitable_Products(APIView):
     def get(self, request, format=None):
         
         file = "app/Charts/new_sets.csv"
-        df = pd.read_csv(file, index_col=0)
+        df = Dataset.df
 
         
         prod_prof = df

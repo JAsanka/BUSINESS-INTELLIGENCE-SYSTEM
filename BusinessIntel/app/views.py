@@ -38,5 +38,5 @@ def allHtml(request):
     context = {}
    
     load_template = request.path.split('/')[-1]
-    template = loader.get_template('app/' + load_template)
+    template = loader.get_template('app/charts/' + load_template)
     return HttpResponse(template.render(context, request))

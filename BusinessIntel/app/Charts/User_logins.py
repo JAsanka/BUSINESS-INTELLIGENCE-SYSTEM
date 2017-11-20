@@ -8,6 +8,8 @@ import pandas_highcharts
 import pandas as pd
 import numpy as np
 
+from .Common import CommonData as Dataset
+
 
 
 class loginDeviceData(APIView):
@@ -19,8 +21,8 @@ class loginDeviceData(APIView):
     def get(self, request, format=None):
         
         file = "app/Charts/new_sets.csv"
-        df = pd.read_csv(file, index_col=0)
-
+        df = Dataset.df
+        
         loggedDevice=df['Logged OS']
         loggedDevice=loggedDevice.groupby(loggedDevice.values).size()
         loggedDevice=loggedDevice.reset_index(drop=False)

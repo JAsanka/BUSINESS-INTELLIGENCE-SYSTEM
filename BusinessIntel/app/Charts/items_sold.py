@@ -10,6 +10,8 @@ import pandas_highcharts
 import pandas as pd
 import numpy as np
 
+from .Common import CommonData as Dataset
+
 
 
 #  bar Chart the items need to be kept and order more quantity and we can answer
@@ -27,7 +29,8 @@ class itemsSoldData(APIView):
 
 
         file = "app/Charts/new_sets.csv"
-        df = pd.read_csv(file, index_col=0)
+        df = Dataset.df
+        
         desc = df["Description"].value_counts()
         df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"]).dt.date
         

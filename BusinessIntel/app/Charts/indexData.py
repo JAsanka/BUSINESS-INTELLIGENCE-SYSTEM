@@ -4,6 +4,8 @@ from django.template import loader
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+from .Common import CommonData as Dataset
+
 
 import pandas_highcharts
 #from pandas_highcharts.core import serialize
@@ -27,7 +29,7 @@ class indexloadData(APIView):
 
 
         file = "app/Charts/new_sets.csv"
-        df = pd.read_csv(file, index_col=0)
+        df = Dataset.df
         Total_Sessions=df['Logged OS'].count()
         prod_prof = df
         prod_prof["TotalAmount"] = prod_prof["Quantity"]*prod_prof["UnitPrice"]

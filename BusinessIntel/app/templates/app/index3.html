@@ -24,8 +24,8 @@
 
 
 
-              document.getElementById("TotalSales").innerHTML = TotalSales.toFixed(2);
-              document.getElementById("TotalProfit").innerHTML = TotalProfit.toFixed(2);
+              document.getElementById("TotalSales").innerHTML = 'PKR '+TotalSales.toFixed(2);
+              document.getElementById("TotalProfit").innerHTML = 'PKR '+TotalProfit.toFixed(2);
               document.getElementById("Total_Sessions").innerHTML = Total_Sessions;
 
         },
@@ -193,7 +193,7 @@
               
               <div class="basic">
 
-                  {% include "app/Cmobile_usage.html" %}  
+                  {% include "app/charts/Cmobile_usage.html" %}  
                   </div>
             </div>
 
