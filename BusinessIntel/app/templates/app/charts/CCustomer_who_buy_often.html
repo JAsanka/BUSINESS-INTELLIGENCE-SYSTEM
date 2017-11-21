@@ -1,0 +1,98 @@
+
+
+
+    <header>
+        <style> body{
+        background: #36394B;
+        height: 100%;
+    }
+    
+    #container{
+        margin: 0 auto;
+        padding-top: 2%;
+    }    
+        </style>
+    </header>
+    <!-- <script src="/static/vendors/jquery/dist/jquery.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script> -->
+    
+    <div id="container2" style="width:50%; height:400px;"></div>
+    
+
+
+    <script>
+        
+        var labledata=[];
+        
+        var featuresdata=[];
+        
+        
+        var endpoint="api/FrequentCustomers/data"
+        $.ajax({
+            method:"GET",
+            url : endpoint,
+            success:function(data){
+                console.log(data)
+        
+                featuresdata=data.ItemNo;
+                labledata=data.Customer;
+                // labledata2=data.sales;
+                console.log("label data"+labledata);
+                console.log("featuredata" +   featuresdata);
+
+                $(function () {
+        var chart = new Highcharts.Chart({
+            chart: {
+               
+                renderTo: 'container2',
+                backgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+                    stops: [
+                        [0, 'rgb(255, 255, 255)'],
+                        [1, 'rgb(200, 200, 255)']
+                    ]
+                },
+                type: 'line'
+            },
+            xAxis: {
+                name:'Customer ID',
+                categories: labledata.fix(0)
+            },
+            yAxis: {   
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                floating: true,
+                align: 'left',
+                x: 100,
+                verticalAlign: 'top',
+                y: 70
+            }, title: {
+        text: 'Top Customers',
+          },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y;
+                }
+            },
+            plotOptions: {
+            },
+            series: [{
+                name:'Items Bought',
+                data: featuresdata       
+            }]
+        });
+    });
+
+            },
+            error:function(error_data){
+                console.error("error")
+                console.log(error_data)
+            }
+        })
+    
+        </script>
+
+

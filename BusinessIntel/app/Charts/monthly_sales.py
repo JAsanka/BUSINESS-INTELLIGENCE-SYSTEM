@@ -21,7 +21,7 @@ class SalesOfMonthData(APIView):
 
     def get(self, request, format=None):
         
-        file = "app/Charts/new_sets.csv"
+        # file = "app/Charts/new_sets.csv"
         df = Dataset.df
 
 #         prod_prof = df

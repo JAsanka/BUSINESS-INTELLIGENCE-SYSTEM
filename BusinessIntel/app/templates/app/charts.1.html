@@ -1,66 +1,4 @@
-
-  <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script> 
-
 {% extends "app/base_site.html" %}
-
-
-
-{% block javascripts %}
-
-
-        <!-- Bootstrap -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <!-- <script src="/static/vendors/bootstrap/dist/js/bootstrap.min.js"></script> -->
-        <!-- FastClick -->
-        <script src="/static/vendors/fastclick/lib/fastclick.js"></script>
-        <!-- NProgress -->
-        <script src="/static/vendors/nprogress/nprogress.js"></script>
-        <!-- bootstrap-progressbar -->
-        <script src="/static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-        <!-- iCheck -->
-        <script src="/static/vendors/iCheck/icheck.min.js"></script>
-        <!-- bootstrap-daterangepicker -->
-        <script src="/static/vendors/moment/min/moment.min.js"></script>
-        <script src="/static/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-        <!-- bootstrap-wysiwyg -->
-        <!-- <script src="/static/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script> -->
-        <script src="/static/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-        <script src="/static/vendors/google-code-prettify/src/prettify.js"></script>
-        <!-- jQuery Tags Input -->
-        <script src="/static/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-        <!-- Switchery -->
-        <script src="/static/vendors/switchery/dist/switchery.min.js"></script>
-        <!-- Select2 -->
-        <script src="/static/vendors/select2/dist/js/select2.full.min.js"></script>
-        <!-- Parsley -->
-        <!-- <script src="/static/vendors/parsleyjs/dist/parsley.min.js"></script> -->
-        <!-- Autosize -->
-        <script src="/static/vendors/autosize/dist/autosize.min.js"></script>
-        <!-- jQuery autocomplete -->
-        <script src="/static/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-        <!-- starrr -->
-        <script src="/static/vendors/starrr/dist/starrr.js"></script>
-  
-  <!-- ECharts -->
-  <script src="/static/vendors/echarts/dist/echarts.min.js"></script>
-  <script src="/static/vendors/echarts/map/js/world.js"></script>
-
-  <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
-  
-  
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script> 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.8.5/echarts.js"></script>
-
-
-
-{% endblock javascripts %}
-
 
 {% block title %} ECharts {% endblock title %}
 
@@ -73,7 +11,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Analytics <small>Charts</small></h3>
+          <h3>Echarts <small>Some examples to get you started</small></h3>
         </div>
 
 
@@ -95,7 +33,7 @@
         <div class="col-md-8 col-sm-8 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Sales Distribution</h2>
+              <h2>Bar Graph</h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -116,8 +54,7 @@
             <div class="x_content">
 
               <div style="height:350px;">
-                {% include "app/charts/CMontly_sales.html" %}  
-                <!-- {% include "app/charts/predcition1_chart.html" %} -->
+                  {% include "app/charts/predcition1_chart.html" %}
               </div>
                
 
@@ -125,10 +62,10 @@
           </div>
         </div>
 
-        <div class="col-md-4 col-sm-4 col-xs-8">
+        <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Profit Distribution</h2>
+              <h2>Mini Pie</h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -148,7 +85,7 @@
             </div>
             <div class="x_content">
 
-              <div  style="height:250x; ">
+              <div  style="height:100%; width="75%">
                   {% include "app/charts/Cprofit_of_the_year.html" %}
               </div>
 
@@ -157,38 +94,6 @@
         </div>
 
 
-        <div class="row">
-          <div class="col-md-12 col-sm-8 col-xs-12">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Top Selling products </h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-  
-                <div style="height:300px;">
-                  {% include "app/charts/Cmost_profitable_products.html" %}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
@@ -212,14 +117,12 @@
             </div>
             <div class="x_content">
 
-              <div style="height:350px;">
-                {% include "app/charts/Cmost_profitable_products.html" %}
-            </div>
+              <div id="echart_pie" style="height:350px;"></div>
 
             </div>
           </div>
         </div>
-<!-- 
+
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
@@ -247,7 +150,7 @@
 
             </div>
           </div>
-        </div> -->
+        </div>
 
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="x_panel">
@@ -337,4 +240,159 @@
           </div>
         </div>
 
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Horizontal Bar</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+              <div id="echart_bar_horizontal" style="height:370px;"></div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>World Map</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+              <div id="echart_world_map" style="height:370px;"></div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Pyramid</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+              <div id="echart_pyramid" style="min-height:200px;"></div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Sonar</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+              <div id="echart_sonar" style="height:370px;"></div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Gauge</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div id="echart_gauge" style="height:370px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
+
+{% block javascripts %}
+{{ block.super }}
+  
+  <!-- ECharts -->
+  <script src="/static/vendors/echarts/dist/echarts.min.js"></script>
+  <script src="/static/vendors/echarts/map/js/world.js"></script>
+{% endblock javascripts %}

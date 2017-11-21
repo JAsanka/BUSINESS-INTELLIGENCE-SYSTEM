@@ -1,8 +1,8 @@
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script> -->
 
-<canvas id="doughnut-chart" width="400" height="450"></canvas>
+<canvas id="doughnut-chart1" width="400" height="450"></canvas>
 
 
    <script>
@@ -23,8 +23,8 @@
 				 totalSalese=data.totalSalese
 					
 				 
-					new Chart(document.getElementById("doughnut-chart"), {
-					type: 'doughnut',
+					new Chart(document.getElementById("doughnut-chart1"), {
+					type: 'line',
 					data: {
 					labels:  ['Jan','Feb','March','April','May','June','July','Aug','Sept','Oct','Nov','Dec'],
 					datasets: [

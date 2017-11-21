@@ -1,8 +1,8 @@
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script> -->
 
-<div id="container" style="min-width: 310px; overflow: scroll; height: 300px; margin: 0 auto;"></div>
+<div id="container1" style="min-width: 310px; overflow: scroll; height: 300px; margin: 0 auto;"></div>
 
 <script>
         
@@ -24,80 +24,61 @@
                   console.log("label data"+labledata);
                   console.log("featuredata" +   featuresdata);
     
-    
-
-$('#container').highcharts({
-            title: {
-                text: '',
-                x: 0
-            },
-            subtitle: {
-                text: '',
-                x: 0
-            },
-            navigation: {
-                buttonOptions: {
-                    enabled: false
-                }
-            },
-            xAxis: {
-                categories: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar',
-                    'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
-            },
-            yAxis: {
-                title: {
-                    text: ''
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                borderColor: '#FFDD90',
-                borderRadius: '3',
-                borderWidth: '1',
-                backgroundColor: '#FFFAD3',
-                formatter: function() {
-                    return '<strong>' + this.y + '</strong>';
-                }
-            },
-            legend: {
-            	enabled: false
-            },
-            credits: {
-                enabled: false
-            },
-            plotOptions: {
-                area: {
-                    fillColor: '#9FDBF7',
-                    lineWidth: 3,
-                    marker: {
-                        enabled: true,
-                        fillColor: '#FFF',
-                        lineColor: '#4ABDF1',
-                        lineWidth: 2
+                $(function () {
+                var chart = new Highcharts.Chart({
+                    chart: {
+                    
+                        renderTo: 'container1',
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+                            stops: [
+                                [0, 'rgb(255, 255, 255)'],
+                                [1, 'rgb(200, 200, 255)']
+                            ]
+                        },
+                        type: 'area'
                     },
-                    shadow: false,
-                    states: {
-                        hover: {
-                            lineWidth: 3
+                    xAxis: {
+                        
+                        title: {
+                    text: 'Month'
+                },
+                        name:'Month',
+                        categories:[ 'Jan', 'Feb', 'Mar',
+                            'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec']
+                    },
+                    yAxis: {title: {
+                    text: 'Sales'
+                        },   
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        backgroundColor: '#FFFFFF',
+                        floating: true,
+                        align: 'left',
+                        x: 100,
+                        verticalAlign: 'top',
+                        y: 70
+                    }, title: {
+                text: 'Sales Monthly',
+                },
+                    tooltip: {
+                        formatter: function() {
+                            return '<b>'+ this.series.name +'</b><br/>'+
+                                this.x +': '+ this.y;
                         }
                     },
-                    threshold: null
-                }
-            },
-            series: [{
-                name: '',
-                type: 'area',
-                color: '#4ABDF1',
-                data: featuresdata
-            }]
-        });
-      
-    
-        
+                    plotOptions: {
+                    },
+                    series: [{
+                        name:'Sales ',
+                        data: featuresdata,    
+                        color: '#3da448'   
+                    }]
+                });
+            });
+
+                
                       
             },
             error:function(error_data){
