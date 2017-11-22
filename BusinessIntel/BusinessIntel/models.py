@@ -1,18 +1,23 @@
+
 from __future__ import unicode_literals
 
 from django.db import models
 
 
-class test(models.Model):
-    name = models.CharField(unique=True, max_length=80)
+class Bisystem(models.Model):
+    invoiceno = models.CharField(db_column='InvoiceNo', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    invoicedate = models.CharField(db_column='InvoiceDate', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    customerid = models.CharField(db_column='CustomerID', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    description = models.CharField(db_column='Description', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    quantity = models.CharField(db_column='Quantity', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    unitprice = models.CharField(db_column='UnitPrice', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    broughtprice = models.CharField(db_column='BroughtPrice', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    profit = models.CharField(db_column='Profit', max_length=255, blank=True, null=True)  # Field name made lowercase.
+    loggedos = models.CharField(db_column='LoggedOS', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
-        db_table = 'auth_group'
-
-
-
-
+        db_table = 'Bisystem'
 
 
 class AuthGroup(models.Model):
@@ -123,20 +128,3 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
-
-
-
-class Bisystem(models.Model):
-    invoiceno = models.CharField(db_column='InvoiceNo', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    invoicedate = models.CharField(db_column='InvoiceDate', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    customerid = models.CharField(db_column='CustomerID', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    description = models.CharField(db_column='Description', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    quantity = models.CharField(db_column='Quantity', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    unitprice = models.CharField(db_column='UnitPrice', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    broughtprice = models.CharField(db_column='BroughtPrice', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    profit = models.CharField(db_column='Profit', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    loggedos = models.CharField(db_column='LoggedOS', max_length=255, blank=True, null=True)  # Field name made lowercase.
-
-    class Meta:
-        managed = False
-        db_table = 'Bisystem'

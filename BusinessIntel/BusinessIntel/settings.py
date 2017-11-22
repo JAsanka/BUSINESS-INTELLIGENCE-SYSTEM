@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,13 +78,18 @@ WSGI_APPLICATION = 'BusinessIntel.wsgi.application'
 
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'mysamplesite',
+    #     'USER': 'root',
+    #     'PASSWORD': '123',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    # }
+
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysamplesite',
-        'USER': 'root',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
