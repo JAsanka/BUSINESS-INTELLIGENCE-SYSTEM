@@ -1,0 +1,67 @@
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
+<canvas id="bar-chart" width="800" height="450"></canvas>
+
+
+
+
+
+
+   <script>
+
+
+        var Correlation=[];
+        var Items=[];
+        
+        
+        
+        var endpoint="api/correlations/data"
+        $.ajax({
+            method:"GET",
+            url : endpoint,
+            success:function(data){
+                //  console.log("Working")
+                Correlation=data.y_cor 				 
+                Items=data.x_cor
+
+					console.log('items'+Items)
+                    console.log('Correlation'+Correlation)
+
+                    new Chart(document.getElementById("bar-chart"), {
+                    type: 'bar',
+                    data: {
+                    labels:Items,
+                    datasets: [
+                        {
+                        label: "Correlated Probability",
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        data: Correlation
+                        }
+                    ]
+                    },
+                    options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Top 20 Correlated Products for the given Product'
+                    }
+                    }
+                });
+
+
+            
+            },
+            error:function(error_data){
+                console.error("error")
+                console.log(error_data)
+            }
+        })
+
+
+
+
+	
+
+ </script>

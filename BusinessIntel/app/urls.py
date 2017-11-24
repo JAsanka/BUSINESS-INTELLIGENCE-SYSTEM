@@ -10,6 +10,9 @@ from .Charts.frequent_customers import FrequentCustomers
 from .Charts.most_profitable_Products import most_profitable_Products
 from .Charts.User_logins import loginDeviceData
 from .Charts.indexData import indexloadData
+from .Charts.CustomersVSno_of_items import CustomersVSno_of_items
+from .pridictingModel.Recommandations import Recommendations
+
 
 from django.contrib.auth import views as auth_views
 
@@ -20,6 +23,11 @@ urlpatterns = [
 
     # The home page
     url(r'^home$', views.index, name='index'),
+
+    url(r'^contactus$', views.contactus, name='index'),
+    
+    url(r'^aboutus$', views.aboutus, name='aboutus'),
+    
     
   #temp login
     url(r'^$', auth_views.login, name='login'),
@@ -30,6 +38,7 @@ urlpatterns = [
 
     #charts
     url(r'^Analytics$',views.charts, name='charts'),
+    url(r'^temp$',views.charts1, name='charts'),
     url(r'^predictions$',views.predictions, name='predictions'),
     
     url(r'^highChart$', hichartGenerate, name='highchart'),
@@ -43,7 +52,13 @@ urlpatterns = [
     url(r'^api/most_profitable_Products/data$', most_profitable_Products.as_view()),
     url(r'^api/loginDeviceData/data$', loginDeviceData.as_view()), 
     url(r'^api/indexloadData/data$', indexloadData.as_view()),  
+    url(r'^api/correlations/data$', Recommendations.as_view()), 
+    url(r'^api/CustomersVSno_of_items/data$', CustomersVSno_of_items.as_view()), 
+     
 
+
+
+    url(r'^api/correlationSearch/data$', Recommendations.as_view(),name='corrdata'), 
     ]
 
 

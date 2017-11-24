@@ -18,10 +18,34 @@ def charts(request):
     template = loader.get_template('app/charts.html')
     return HttpResponse(template.render(context, request))
 
+
+
+
+def charts1(request):
+    context = {}
+    template = loader.get_template('app/charts.1.html')
+    return HttpResponse(template.render(context, request))
+
+
+
 def predictions(request):
     context = {}
     template = loader.get_template('app/predictions.html')
     return HttpResponse(template.render(context, request))
+
+
+
+def contactus(request):
+    context = {}
+    template = loader.get_template('app/contacts.html')
+    return HttpResponse(template.render(context, request))
+
+def aboutus(request):
+    context = {}
+    template = loader.get_template('app/aboutus.html')
+    return HttpResponse(template.render(context, request))
+
+
 
 
 

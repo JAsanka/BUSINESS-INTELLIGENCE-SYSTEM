@@ -1,0 +1,57 @@
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>  -->
+<canvas id="changed" width="800" height="800"></canvas>
+
+
+
+
+<script>
+
+    
+        var labledata=[];
+        
+        var featuresdata=[];
+        
+        var endpoint="api/most_profitable_Products/data"
+
+        $.ajax({
+            method:"GET",
+            url : endpoint,
+            success:function(data){
+                console.log(data)
+        
+                 featuresdata=data.totalProfit;
+                 labledata=data.description;
+                
+
+                  new Chart(document.getElementById("changed"), {
+                    type: 'pie',
+                    data: {
+                    labels: labledata,
+                    datasets: [
+                        {
+                        label: "Profit Earned",
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        data: featuresdata
+                        }
+                    ]
+                    },
+                    options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text:"Most profitable products"
+                    }
+                    }
+                });    
+    
+        
+                      
+            },
+            error:function(error_data){
+                console.error("error")
+                console.log(error_data)
+            }
+        })
+
+</script>

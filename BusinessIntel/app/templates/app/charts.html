@@ -1,18 +1,17 @@
 
   <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script> 
+  src="/static/vendors/customLoad/loadjquery-2.2.4.min.js"
+  ></script> 
 
 {% extends "app/base_site.html" %}
 
 
 
 {% block javascripts %}
-
+/static/vendors/customLoad/load
 
         <!-- Bootstrap -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="/static/vendors/customLoad/loadbootstrap.min.js"></script>
         <!-- <script src="/static/vendors/bootstrap/dist/js/bootstrap.min.js"></script> -->
         <!-- FastClick -->
         <script src="/static/vendors/fastclick/lib/fastclick.js"></script>
@@ -51,11 +50,11 @@
   <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
   
   
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="/static/vendors/customLoad/loadhighcharts.js"></script>
+  <script src="/static/vendors/customLoad/loadhighcharts-3d.js"></script>
+  <script src="/static/vendors/customLoad/loadexporting.js"></script>
   <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script> 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.8.5/echarts.js"></script>
+  <script src="/static/vendors/customLoad/loadecharts.js"></script>
 
 
 
@@ -115,7 +114,7 @@
             </div>
             <div class="x_content">
 
-              <div style="height:350px;">
+              <div style="height:370px;">
                 {% include "app/charts/CMontly_sales.html" %}  
                 <!-- {% include "app/charts/predcition1_chart.html" %} -->
               </div>
@@ -125,6 +124,7 @@
           </div>
         </div>
 
+    <br />
         <div class="col-md-4 col-sm-4 col-xs-8">
           <div class="x_panel">
             <div class="x_title">
@@ -148,7 +148,7 @@
             </div>
             <div class="x_content">
 
-              <div  style="height:250x; ">
+              <div  style="height:370x; ">
                   {% include "app/charts/Cprofit_of_the_year.html" %}
               </div>
 
@@ -188,11 +188,11 @@
             </div>
           </div>
 
-          
+          <div class="clearfix"></div>  <div class="clearfix"></div>
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Pie Graph</h2>
+              <h2></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -213,66 +213,8 @@
             <div class="x_content">
 
               <div style="height:350px;">
-                {% include "app/charts/Cmost_profitable_products.html" %}
+                {% include "app/charts/Cmost_profitable_products1.html" %}
             </div>
-
-            </div>
-          </div>
-        </div>
-<!-- 
-        <div class="col-md-4 col-sm-4 col-xs-12">
-          <div class="x_panel">
-            <div class="x_title">
-              <h2>Pie Area</h2>
-              <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Settings 1</a>
-                    </li>
-                    <li><a href="#">Settings 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-
-              <div id="echart_pie2" style="height:350px;"></div>
-
-            </div>
-          </div>
-        </div> -->
-
-        <div class="col-md-4 col-sm-4 col-xs-12">
-          <div class="x_panel">
-            <div class="x_title">
-              <h2>Donut Graph</h2>
-              <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Settings 1</a>
-                    </li>
-                    <li><a href="#">Settings 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-
-              <div id="echart_donut" style="height:350px;"></div>
 
             </div>
           </div>
@@ -302,39 +244,12 @@
             </div>
             <div class="x_content">
 
-              <div id="echart_scatter" style="height:350px;"></div>
-
+              <!-- <div id="echart_scatter" style="height:350px;"></div> -->
+              
+              {% include "app/charts/CustomersVSno_of_items.html" %}
             </div>
           </div>
         </div>
 
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="x_panel">
-            <div class="x_title">
-              <h2>Line Graph</h2>
-              <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Settings 1</a>
-                    </li>
-                    <li><a href="#">Settings 2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-
-              <div id="echart_line" style="height:350px;"></div>
-
-            </div>
-          </div>
-        </div>
 
 {% endblock content %}

@@ -1,0 +1,131 @@
+{% extends "app/base_site.html" %}
+
+{% block title %} Contacts {% endblock title %}
+
+{% block stylesheets %}
+  {{ block.super }}
+
+
+
+  <style>
+  .center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+body{
+  background: black;
+}
+#contain{
+  width: 75%;
+  height: 550px;
+  padding: 0;
+}
+#headerpic{
+  background: url("http://i65.tinypic.com/2gww7wh.jpg");
+  width: 75%;
+  height: 100%;  
+  color: white;
+}
+
+#mainHeader{
+    margin: 15% auto 15% auto;
+  }  
+#headerWords {
+  font-family: Roboto;
+  font-size: 60px;
+}
+#pwb {
+  font-size: 20px;
+  float: left;
+  color: #ff0000;
+}
+#nav {
+  padding: 20px;
+  color: white;
+  font-size: 20px;
+  display: inline;
+  margin: 10px 0px -3px -25px;
+  text-decoration: none;
+}
+li {
+  float: right;
+  padding: 0px 20px;
+}
+#bodytext{
+  background: white;
+  width: 75%;
+  padding: 5% 15% 5% 15%;
+}
+#fish{
+  width: 100%;
+  height: auto;
+}
+blockquote{
+  border-left: 3px solid  darkgrey;
+  padding: 15px;
+  font-size: 16px;
+}
+p {
+  font-size: 20px;
+}
+#finalDiv{
+  margin-top: 50px;
+  border-top: thick double #ff0000;
+}
+#h2{
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-bottom: thick double lightgrey;
+}
+figcaption{
+  font-size: 14px;
+}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+\<header>
+    <title>Lesson 2</title>
+  </header>
+  <body>
+    <div id="headerpic" class="center-block">
+      <div id="tabs" class="row container-fluid">
+      
+        <div class="col-md-8">
+       <div id="mainHeader" class="text-center center-block">
+         <h1 id=headerWords><b>Business Intelligence System</b></h1>
+         
+         <p><i><b>By Bisar Hasan and Hassan Raj</b></i></p>
+        </div> 
+    </div>
+      </div>
+        
+       
+      </div>
+    </div>  
+      <div id="bodytext" class="center-block">
+        <p>In today's era the Retail industry is facing significant challenges. Now a days most of the retail units are relying on the concept of data mining and predictive analytics to achieve maximum targeted marketing and sales strategies. Utilizing this methodology retail stores can expand sales and Increase customer’s loyalty. The aim of this project is to encourage the retail stores to anticipate which thing has more prominent probability of being sold under what conditions with graphical dashboards. Our project depends upon the concept of data mining. The fundamental purpose behind this project is to expand sales and encourage the retailer by utilizing the strategies of data mining and predictive analytics.</p>
+        <p></p>
+      
+        <p>This project will allow the customer to get raw numbers of which item has greater likelihood of being sold on everyday schedule and on special occasions. Which product has relationship with other products. Which product needs promotion. The reason behind this project is to make it easier for the retailer to grow up sales. Save money and exertion on things which have no extent of being sold.</p>
+        
+    <div id="finalDiv" class="text-center">
+      <i class="fa fa-github fa-4x"></i>
+      <i class="fa fa-facebook fa-4x" style="padding: 20px"></i>
+      <i class="fa fa-twitter fa-4x"></i>
+    <div>
+      <p>Copyright <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> Business Intelligence system</p>
+    </div>   
+      </div>
+  
+  
+  </body>
+  
+    
+{% endblock content %}
+
+{% block javascripts %}
+  {{ block.super }}
+{% endblock javascripts %}
+

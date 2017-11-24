@@ -11,7 +11,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Echarts <small>Some examples to get you started</small></h3>
+          <h3>Analytics <small>Charts</small></h3>
         </div>
 
 
@@ -33,7 +33,7 @@
         <div class="col-md-8 col-sm-8 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Bar Graph</h2>
+              <h2>Sales Distribution</h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -54,7 +54,7 @@
             <div class="x_content">
 
               <div style="height:350px;">
-                  {% include "app/charts/predcition1_chart.html" %}
+                {% include "app/charts/CMontly_sales.html" %}  
               </div>
                
 
@@ -86,7 +86,7 @@
             <div class="x_content">
 
               <div  style="height:100%; width="75%">
-                  {% include "app/charts/Cprofit_of_the_year.html" %}
+                {% include "app/charts/Cprofit_of_the_year.html" %}
               </div>
 
             </div>
@@ -117,8 +117,8 @@
             </div>
             <div class="x_content">
 
-              <div id="echart_pie" style="height:350px;"></div>
-
+              {% include "app/charts/Cmost_profitable_products.html" %}
+              
             </div>
           </div>
         </div>
@@ -146,8 +146,8 @@
             </div>
             <div class="x_content">
 
-              <div id="echart_pie2" style="height:350px;"></div>
-
+              {% include "app/charts/Cmost_profitable_products1.html" %}
+              
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@
             </div>
             <div class="x_content">
 
-              <div id="echart_donut" style="height:350px;"></div>
+              {% include "app/charts/CustomersVSno_of_items.html" %}
 
             </div>
           </div>
